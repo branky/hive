@@ -17,11 +17,6 @@
  */
 package org.apache.hadoop.hive.ql.io.orc;
 
-import java.io.DataInput;
-import java.io.DataOutput;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Properties;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
@@ -36,6 +31,12 @@ import org.apache.hadoop.hive.serde2.typeinfo.TypeInfo;
 import org.apache.hadoop.hive.serde2.typeinfo.TypeInfoUtils;
 import org.apache.hadoop.io.Writable;
 
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Properties;
+
 /**
  * A serde class for ORC.
  * It transparently passes the object to/from the ORC file reader/writer.
@@ -49,7 +50,7 @@ public class OrcSerde implements SerDe, VectorizedSerde {
 
   private VectorizedOrcSerde vos = null;
 
-  final class OrcSerdeRow implements Writable {
+  public final class OrcSerdeRow implements Writable {
     Object realRow;
     ObjectInspector inspector;
 

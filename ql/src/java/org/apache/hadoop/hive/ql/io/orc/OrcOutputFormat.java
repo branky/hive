@@ -111,7 +111,7 @@ public class OrcOutputFormat extends FileOutputFormat<NullWritable, OrcSerdeRow>
       getRecordWriter(FileSystem fileSystem, JobConf conf, String name,
                       Progressable reporter) throws IOException {
     return new
-      OrcRecordWriter(new Path(name), OrcFile.writerOptions(conf));
+      OrcRecordWriter(new Path(getWorkOutputPath(conf), name), OrcFile.writerOptions(conf));
   }
 
   @Override
